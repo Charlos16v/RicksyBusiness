@@ -1,12 +1,30 @@
+package edu.pingpong.domain;
 
-import edu.pingpong.domain.UfosPark;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UfosParkTest {
 
-    UfosPark ufos = null;
+
+    UfosPark ufosPark = null;
     String[] ovnis = { "unx", "dox", "trex" };
+
+
+    @Before
+    public void setupUfosPark() {
+        ufosPark = new UfosPark();
+        for (String ovni : ovnis) {
+            ufosPark.add(ovni);
+        }
+    }
+
+
+    @Test
+    public void constructorTest() {
+        assertNotNull(ufosPark);
+    }
+
 
     /**
      * Testea el metodo añadir ovni 
@@ -14,6 +32,7 @@ public class UfosParkTest {
      */
     @Test
     public void addUfoTest() {
+        assertEquals("[trex, dox, unx]", ufosPark.toString());
     }
 
     /**
