@@ -2,19 +2,7 @@
 
 
 
-        /**
-         * Vamos a automatizar ahora ambas tareas, de modo que
-         * cuando llega un invitado/a se le asiga un ovni
-         * y un pack y se realiza el cargo a la tarjeta.
-         *
-         * Para ello, crea el componente receptivo
-         * y registra (añade) los componentes UfosPark
-         * y CrystalDispatcher al receptivo
-         */
 
-        Receptivo receptivo = new Receptivo();
-        receptivo.registra(packExpender);
-        receptivo.registra(ufosPark);
 
         // Implementa el metodo receptivo.dispatch()
         // para que invoque a UfosPark.dispatch()
