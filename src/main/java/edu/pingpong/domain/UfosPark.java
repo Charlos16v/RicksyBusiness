@@ -61,7 +61,7 @@ public class UfosPark implements GuestDispatcher {
 
 
     // Metodo privado encargado comprobar si hay un ufo alquilado a partir del numero de tarjeta.
-    private boolean containsCard(String cardNumber) {
+    boolean containsCard(String cardNumber) {
         return fleet.containsValue(cardNumber);
     }
 }

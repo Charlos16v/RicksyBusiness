@@ -14,4 +14,10 @@ public class Receptivo {
         observers.add(guestDispatcher);
     }
 
+    public void dispatch(CreditCard card) {
+        for (GuestDispatcher guestDispatcher : observers) {
+            guestDispatcher.dispatch(card);
+        }
+    }
+
 }
