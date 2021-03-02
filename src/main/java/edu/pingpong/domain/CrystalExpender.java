@@ -1,6 +1,6 @@
 package edu.pingpong.domain;
 
-public class CrystalExpender implements GuestDispatcher{
+public class CrystalExpender implements GuestDispatcher {
 
 
     private int stock = 0;

@@ -6,9 +6,10 @@ import java.util.Set;
 public class Receptivo {
 
 
-    private Set<GuestDispatcher> observers = new LinkedHashSet<>();
+    private final Set<GuestDispatcher> observers = new LinkedHashSet<>();
 
-    public Receptivo() {};
+    public Receptivo() {
+    }
 
     public void registra(GuestDispatcher guestDispatcher) {
         observers.add(guestDispatcher);

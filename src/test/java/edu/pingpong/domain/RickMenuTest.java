@@ -14,7 +14,7 @@ public class RickMenuTest {
 
     @Before
     public void setupRickMenu() {
-        rickMenu = new RickMenu( 10, 10);
+        rickMenu = new RickMenu(10, 10);
         card = new CreditCard("Master", "8888");
     }
 

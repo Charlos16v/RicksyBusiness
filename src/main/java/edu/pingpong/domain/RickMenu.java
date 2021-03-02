@@ -3,7 +3,7 @@ package edu.pingpong.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RickMenu implements GuestDispatcher{
+public class RickMenu implements GuestDispatcher {
 
 
     private int stock = 0;
@@ -31,6 +31,7 @@ public class RickMenu implements GuestDispatcher{
     public String toString() {
         return "Stock: " + stock() + '\n' +
                 "MenuCost: " + menuCost + '\n' +
-                "Orders: " + orders;
+                "Orders: " + orders + '\n' +
+                "OrdersQuantity: " + orders.size();
     }
 }

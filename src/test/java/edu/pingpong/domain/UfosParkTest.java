@@ -2,13 +2,14 @@ package edu.pingpong.domain;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class UfosParkTest {
 
 
     UfosPark ufosPark = null;
-    String[] ovnis = { "unx", "dox", "trex"};
+    String[] ovnis = {"unx", "dox", "trex"};
 
 
     @Before
@@ -27,7 +28,7 @@ public class UfosParkTest {
 
 
     /**
-     * Testea el metodo añadir ovni 
+     * Testea el metodo añadir ovni
      * a la flota de ufos
      */
     @Test
@@ -36,8 +37,8 @@ public class UfosParkTest {
     }
 
     /**
-     * Testea el metodo reservar ovni 
-     * y cargar el pago en la tarjeta 
+     * Testea el metodo reservar ovni
+     * y cargar el pago en la tarjeta
      * de crédito.
      * El crédito de la tarjeta varía.
      */
@@ -54,7 +55,7 @@ public class UfosParkTest {
     }
 
     /**
-     * Testea que no se pueda reservar un ovni 
+     * Testea que no se pueda reservar un ovni
      * si no hay crédito suficiente en la tarjeta.
      * El crédito de la tarjeta no varía.
      */
@@ -70,7 +71,7 @@ public class UfosParkTest {
     }
 
     /**
-     * Testea que no se pueda reservar un ovni 
+     * Testea que no se pueda reservar un ovni
      * si ya existe un ovni reservado para esa tarjeta.
      * El crédito de la tarjeta no varía.
      */
@@ -86,7 +87,7 @@ public class UfosParkTest {
     }
 
     /**
-     * Testea que no se pueda reservar un ovni 
+     * Testea que no se pueda reservar un ovni
      * si no existe ninguno disponible (sin reservar).
      * El crédito de la tarjeta no varía.
      */
