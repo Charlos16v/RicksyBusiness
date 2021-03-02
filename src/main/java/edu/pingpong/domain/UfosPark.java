@@ -44,7 +44,7 @@ public class UfosPark implements GuestDispatcher {
 
         if (this.fleet.containsValue(cardNumber)) {
             for (Map.Entry<String, String> entry : this.fleet.entrySet()) {
-                if (entry.getValue().equals(cardNumber)) {
+                if (entry.getValue() == (cardNumber)) {
                     ufo = entry.getKey();
                     break;
                 }
