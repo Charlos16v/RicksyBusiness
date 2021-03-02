@@ -2,5 +2,5 @@ package edu.pingpong.domain;
 
 public interface GuestDispatcher {
 
-    public void dispatch(CreditCard creditCard);
+    void dispatch(CreditCard creditCard);
 }

@@ -8,7 +8,7 @@ public class UfosParkTest {
 
 
     UfosPark ufosPark = null;
-    String[] ovnis = { "unx", "dox", "trex" };
+    String[] ovnis = { "unx", "dox", "trex"};
 
 
     @Before
@@ -43,6 +43,14 @@ public class UfosParkTest {
      */
     @Test
     public void dispatchTest() {
+        CreditCard firstCard = new CreditCard("Master", "0000");
+        CreditCard secondCard = new CreditCard("Aguila", "8888");
+
+        ufosPark.dispatch(firstCard);
+        ufosPark.dispatch(secondCard);
+
+        assertEquals("trex", ufosPark.getUfoOf(firstCard.number()));
+        assertEquals("dox", ufosPark.getUfoOf(secondCard.number()));
     }
 
     /**
@@ -52,6 +60,13 @@ public class UfosParkTest {
      */
     @Test
     public void dispatchNoCreditTest() {
+        CreditCard noCreditCard = new CreditCard("NoMoney", "6969");
+
+        noCreditCard.pay(3000);
+
+        ufosPark.dispatch(noCreditCard);
+
+        assertNull(ufosPark.getUfoOf(noCreditCard.number()));
     }
 
     /**
@@ -61,6 +76,13 @@ public class UfosParkTest {
      */
     @Test
     public void dispatchUfoAlreadyReservedTest() {
+        CreditCard master = new CreditCard("master", "0000");
+
+        ufosPark.dispatch(master);
+        assertEquals("trex", ufosPark.getUfoOf(master.number()));
+
+        ufosPark.dispatch(master);
+        assertEquals("trex", ufosPark.getUfoOf(master.number()));
     }
 
     /**
@@ -70,6 +92,17 @@ public class UfosParkTest {
      */
     @Test
     public void dispatchNoUfoAvaliableTest() {
+        CreditCard firstCard = new CreditCard("Master", "0000");
+        CreditCard secondCard = new CreditCard("Aguila", "8888");
+        CreditCard thirdCard = new CreditCard("Observador", "7777");
+        CreditCard fourthCard = new CreditCard("Fido", "2222");
+
+        ufosPark.dispatch(firstCard);
+        ufosPark.dispatch(secondCard);
+        ufosPark.dispatch(thirdCard);
+        ufosPark.dispatch(fourthCard); // Only 3 ufos on the fleet, its going to be null.
+
+        assertNull(ufosPark.getUfoOf(fourthCard.number()));
     }
 
     /**
@@ -77,5 +110,9 @@ public class UfosParkTest {
      */
     @Test
     public void getUfoOfTest() {
+        CreditCard master = new CreditCard("master", "0000");
+
+        ufosPark.dispatch(master);
+        assertEquals("trex", ufosPark.getUfoOf(master.number()));
     }
 }

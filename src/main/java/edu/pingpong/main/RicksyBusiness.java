@@ -1,26 +1,26 @@
 /**
  * Ricksy Business
  * ===============
- * Rick se queda a cargo Morty y Summer, 
- * y celebra una pedazo de fiesta. 
- * Entre los invitados hay adolescentes, aliens, 
- * Gearhead, Squanchy, Birdpearson y 
+ * Rick se queda a cargo Morty y Summer,
+ * y celebra una pedazo de fiesta.
+ * Entre los invitados hay adolescentes, aliens,
+ * Gearhead, Squanchy, Birdpearson y
  * Abradolph Lincler (una combinación de DNA
  * de Adolf Hitler y Abraham Lincoln).
- * 
- * Cuando un invitado/a llega a la fiesta, 
+ * <p>
+ * Cuando un invitado/a llega a la fiesta,
  * se le da de alta en el receptivo del sistema
  * mediante su tarjeta de crédito.
- * 
+ * <p>
  * El receptivo carga en el crédito de la tarjeta:
  * - El coste del UberOvni de vuelta a casa
  * - El coste del pack de bienvenida (Collaxion crystals).
- * 
+ * <p>
  * El componente de reserva de Ovnis y el componente
  * de entrega del pack de bienvenida observan al
  * componente receptivo, de modo que cuando el receptivo
- * da de alta a un invitado/a automáticamente cargan 
- * en la tarjeta del invitado/a el coste de ambos servicios. 
+ * da de alta a un invitado/a automáticamente cargan
+ * en la tarjeta del invitado/a el coste de ambos servicios.
  */
 
 package edu.pingpong.main;
@@ -29,7 +29,7 @@ import edu.pingpong.domain.CreditCard;
 import edu.pingpong.domain.UfosPark;
 
 public class RicksyBusiness {
-    
+
     public static void main(String[] args) {
         System.out.println();
 
@@ -40,9 +40,9 @@ public class RicksyBusiness {
          */
 
         CreditCard abradolph = new CreditCard("Abradolph Lincler", "4916119711304546");
-        
-        System.out.println("\n" + "Tarjeta de Abradolph" + "\n" + 
-                                  "===================="        );
+
+        System.out.println("\n" + "Tarjeta de Abradolph" + "\n" +
+                "====================");
         System.out.println(abradolph);
 
         /**
@@ -59,13 +59,12 @@ public class RicksyBusiness {
 
         // Da de alta en la flota de ovnis 2 UFOS.
 
-        String[] ufosID = { "unx", "dox" };
+        String[] ufosID = {"unx", "dox"};
         for (String ovni : ufosID) {
             ufosPark.add(ovni);
         }
 
 
-        /*
         // Procesamos el pago y reserva de ovni de Abradolph
         ufosPark.dispatch(abradolph);
 
@@ -86,7 +85,47 @@ public class RicksyBusiness {
         ufosPark.dispatch(abradolph);
         System.out.println("Su credito no ha cambiado: " + abradolph.credit());
         System.out.println("Ovni de Abradolph: " + ufosPark.getUfoOf(abradolph.number()));
-        */
+
+        // A GearHead le vacía la tarjeta el alien "Cámara Lenta"
+        // mientras le daba la chapa, justo antes de pagar el ovni.
+        // Intenta reservarlo y el componente de reserva de ovnis
+        // no le asigna ninguno.
+
+        System.out.println("\nLLega GearHead!\n" +
+                "===============");
+        CreditCard gearHead = new CreditCard("Gearhead", "8888888888888888");
+
+        gearHead.pay(3000); // le vacían la cartera
+
+        ufosPark.dispatch(gearHead);
+        System.out.println("Su credito es cero: " + gearHead.credit());
+        System.out.println("No puede reservar ovni: " + ufosPark.getUfoOf(gearHead.number()));
+
+        // Squanchy deja su ovni reservado
+        // antes de irse a squanchear
+
+        System.out.println("\nLLega Squanchy!\n" + "==============");
+        CreditCard squanchy = new CreditCard("Squanchy", "4444444444444444");
+        ufosPark.dispatch(squanchy);
+        System.out.println("Su credito es: " + squanchy.credit());
+        System.out.println("Su ovni es: " + ufosPark.getUfoOf(squanchy.number()));
+
+        // Morty quiere un ovni para huir de la fiesta
+        // pero ya no queda ninguno disponible
+
+        System.out.println("\nAlgun ovni para Morty?\n" + "======================");
+        CreditCard morty = new CreditCard("Morty", "0000000000000000");
+        ufosPark.dispatch(morty);
+        System.out.println("Su credito no ha cambiado: " + morty.credit());
+        System.out.println("No hay ovni Morty: " + ufosPark.getUfoOf(morty.number()));
+
+        // Metemos un ovni más en la flota de ovnis
+        // y mostramos la flota por consola
+
+        System.out.println("\nFlota de ovnis\n" +
+                "==============");
+        ufosPark.add("trex");
+        System.out.println(ufosPark);
 
     }
 

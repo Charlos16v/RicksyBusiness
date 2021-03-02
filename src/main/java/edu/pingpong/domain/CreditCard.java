@@ -6,7 +6,7 @@ public class CreditCard {
     private final String owner;
     private final String number;
     private double credit = 3000.0;
-    private String SYMBOL = "EZI";
+    private final String SYMBOL = "EZI";
 
     public CreditCard(String owner, String number) {
         this.owner = owner;
@@ -27,6 +27,15 @@ public class CreditCard {
 
     public String getSYMBOL() {
         return SYMBOL;
+    }
+
+    public boolean pay(double ezi) {
+        if (ezi > credit) {
+            return false;
+        } else {
+            credit -= ezi;
+            return true;
+        }
     }
 
     @Override
